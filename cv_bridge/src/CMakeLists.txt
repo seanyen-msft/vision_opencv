@@ -3,6 +3,7 @@ include_directories(./)
 add_library(${PROJECT_NAME} STATIC cv_bridge.cpp rgb_colors.cpp)
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
+set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
 
@@ -45,11 +46,16 @@ target_link_libraries(${PROJECT_NAME}_boost ${Boost_LIBRARIES}
 
 set_target_properties(${PROJECT_NAME}_boost PROPERTIES
                       LIBRARY_OUTPUT_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_PYTHON_DESTINATION}/${PROJECT_NAME}/boost/
+                      RUNTIME_OUTPUT_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_PYTHON_DESTINATION}/${PROJECT_NAME}/boost/
                       PREFIX ""
 )
 if(APPLE)
   set_target_properties(${PROJECT_NAME}_boost PROPERTIES
                         SUFFIX ".so")
+endif()
+if(MSVC)
+  set_target_properties(${PROJECT_NAME}_boost PROPERTIES
+                        SUFFIX ".pyd")
 endif()
 
 install(TARGETS ${PROJECT_NAME}_boost DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/boost/)
