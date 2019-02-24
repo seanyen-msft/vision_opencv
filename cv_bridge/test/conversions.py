@@ -61,6 +61,7 @@ class TestConversions(unittest.TestCase):
                             original = np.uint8(np.random.randint(0, 255, size=(h, w)))
                         else:
                             original = np.uint8(np.random.randint(0, 255, size=(h, w, channels)))
+                        print('format: %s' % f)
                         compress_rosmsg = cvb_en.cv2_to_compressed_imgmsg(original, f)
                         newimg          = cvb_de.compressed_imgmsg_to_cv2(compress_rosmsg)
                         self.assert_(original.dtype == newimg.dtype)
