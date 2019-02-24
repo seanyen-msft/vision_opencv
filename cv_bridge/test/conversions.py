@@ -48,7 +48,7 @@ class TestConversions(unittest.TestCase):
         import numpy as np
         # from: http://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#Mat imread(const string& filename, int flags)
         formats = ["jpg", "jpeg", "jpe", "png", "bmp", "dib", "ppm", "pgm", "pbm",
-                   "jp2", "sr", "ras", "tif", "tiff"]  # this formats rviz is not support
+                   "sr", "ras", "tif", "tiff"]  # this formats rviz is not support
 
         cvb_en = CvBridge()
         cvb_de = CvBridge()
