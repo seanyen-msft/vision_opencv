@@ -46,6 +46,7 @@
 #include <stdexcept>
 #include <string>
 #include <memory>
+#include <cv_bridge/cv_bridge_exports.h>
 
 namespace cv_bridge
 {

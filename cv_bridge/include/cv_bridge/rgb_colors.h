@@ -37,6 +37,7 @@
 #define CV_BRIDGE__RGB_COLORS_H_
 
 #include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge_exports.h>
 
 
 namespace cv_bridge
