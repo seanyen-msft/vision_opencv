@@ -11,7 +11,7 @@ if(NOT ANDROID)
     find_package(Boost REQUIRED python37)
   else()
     # Ubuntu Focal
-    find_package(Boost REQUIRED python)
+    find_package(Boost REQUIRED python38)
   endif()
 else()
 find_package(Boost REQUIRED)
